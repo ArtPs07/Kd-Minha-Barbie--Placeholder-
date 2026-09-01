@@ -46,19 +46,26 @@ O jogo terá de 3 a 5 fases, que serão divididas de acordo com o nível de desa
 Os personagens serão simples e agradáveis aos olhos, utilizando um estilo de arte pixelado semelhante ao dos jogos das eras de 8 e 16 bits.
 O personagem jogável e os inimigos serão facilmente identificáveis, com o personagem jogável sendo o único com uma aparência mais humana, enquanto os inimigos poderão ser monstros que fazem referência a objetos ou animais. As plataformas também serão destacadas no cenário, para facilitar os momentos em que será preciso identificar com precisão e rapidez a posição do jogador e dos inimigos na tela.
 
+O protagonista terá um visual inspirado em um vampiro da epeca vitoriana, com olhos vermelhos roupas elegantes e uma capa.
+
+O inimigo principal será um gigante com o visual mais "selvagem" e ameaçador.
+
+E um dos inimigos será inspirado em uma tartaruga, com um casco de cor azul.
+
+
 **Setting e Mundo**
 
 O mundo do jogo será limitado às fases e, talvez, a um simples mapa para a escolha delas. Cada fase terá seu respectivo tema/bioma, que, por sua vez, poderá ter mecânicas específicas associadas. Por exemplo, em uma fase com tema de lava, entrar em contato com o “chão” levará à derrota, etc. Cada fase terá um inimigo exclusivo, juntamente com os inimigos normais.
 
 **Tom e Estética**
 
-O estilo de arte será colorido e imitará o padrão dos 8 e 16 bits, tendo como principais inspirações os jogos do Mario. A fonte das imagens presentes neste documento e a paleta de cores também tentarão seguir esse formato, resultando em uma estética leve e animada.
+O estilo de arte será colorido e imitará o padrão dos 8 e 16 bits, tendo como principais inspirações os jogos do Mario. E a paleta de cores também tentarão seguir esse formato, resultando em uma estética leve e animada.
 
 **Narrativa**
 
 No máximo, seria utilizado um parágrafo de texto breve explicando o motivo de o personagem jogável estar naquele lugar no início da gameplay. Algo como:
 
-> “Um dia, sempre tem um dia, Luanzinho estava passeando e brincando com sua boneca da Barbie quando, de repente, um dinossauro que apareceu repentinamente rouba sua boneca e foge. Agora, Luanzinho precisa ir atrás desse malfeitor para recuperar sua boneca.”
+> “Um dia, sempre tem um dia, Emilio Black estava passeando e brincando com sua boneca da Barbie quando, de repente, um gigante que apareceu repentinamente rouba sua boneca e foge. Agora, Emilio precisa ir atrás desse malfeitor para recuperar sua boneca.”
 
 Se possível, uma cutscene será feita mostrando esse momento e, ao final, a recuperação da boneca.
 
