@@ -46,7 +46,7 @@ O jogo terá de 3 a 5 fases, que serão divididas de acordo com o nível de desa
 Os personagens serão simples e agradáveis aos olhos, utilizando um estilo de arte pixelado semelhante ao dos jogos das eras de 8 e 16 bits.
 O personagem jogável e os inimigos serão facilmente identificáveis, com o personagem jogável sendo o único com uma aparência mais humana, enquanto os inimigos poderão ser monstros que fazem referência a objetos ou animais. As plataformas também serão destacadas no cenário, para facilitar os momentos em que será preciso identificar com precisão e rapidez a posição do jogador e dos inimigos na tela.
 
-O protagonista terá um visual inspirado em um vampiro da epeca vitoriana, com olhos vermelhos roupas elegantes e uma capa.
+O protagonista terá um visual inspirado em um vampiro da epoca vitoriana, com olhos vermelhos roupas elegantes e uma capa.
 
 O inimigo principal será um gigante com o visual mais "selvagem" e ameaçador.
 
