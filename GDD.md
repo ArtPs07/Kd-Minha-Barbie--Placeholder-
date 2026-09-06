@@ -13,7 +13,7 @@ O projeto é voltado para toda a audiência de jogadores casuais, de todas as id
 
 O jogo também contará com uma história simplista, composta por, no máximo, um ou dois parágrafos de texto, com um pouco de humor apenas para dar um plano de fundo aos eventos.
 
-Este projeto não tem fins comerciais.
+A estratégia principal de markting será apresentar o jogo em feiras de jogos indies, a primeira fase do jogo será disponibilisada para o público jogar.
 
 **Core Gameplay**
 
@@ -38,7 +38,7 @@ Existem dois tipos de inimigos: os que lançam projéteis que causam dano ao ace
 
 **Balanço e Pacing**
 
-O jogo terá de 3 a 5 fases, que serão divididas de acordo com o nível de desafio, sendo a primeira utilizada para apresentar as mecânicas básicas e acostumar o player ao ritmo do jogo. As fases restantes se tornarão gradativamente mais difíceis de completar, sendo a última fase o desafio final. Apesar disso, o jogo continuará tendo uma proposta mais casual, não sendo necessária muita habilidade para completar nem mesmo a fase mais difícil.
+O jogo terá de 3 fases, que serão divididas de acordo com o nível de desafio, sendo a primeira utilizada para apresentar as mecânicas básicas e acostumar o player ao ritmo do jogo. As fases restantes se tornarão gradativamente mais difíceis de completar, sendo a última fase o desafio final. Apesar disso, o jogo continuará tendo uma proposta mais casual, não sendo necessária muita habilidade para completar nem mesmo a fase mais difícil.
 
 
 **Design de Personagem**
