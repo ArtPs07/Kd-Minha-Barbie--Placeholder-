@@ -1,0 +1,39 @@
+1. Identificação
+
+Nome do projeto: Kd Minha Barbie ?
+Nome do(a) aluno(a): Arthur Perez Santos
+Repositório GitHub: https://github.com/users/arthurfutvip-arch/projects/2
+
+
+2. O Projeto
+
+
+Descrição: (Breve descrição do software a ser desenvolvido, destacando o problema e o público-alvo.)
+O software será um jogo plataforma 2D similar ao jogo da Nintendo Mario Bros. O jogo a princípio tem um público alvo jogadores que gostam desse estilo de jogo, a ferramenta que será utilizada para fazer o jogo ainda precisa ser decidida.
+
+Objetivo: (Descreva o propósito do sistema e os benefícios esperados.)
+O objetivo é tentar fazer um jogo inspirado em Mario mas com algumas ideias originais para tornar o projeto mais interessante como power ups diferentes o suficiente do jogo que inspirou o projeto e uma pequena história de plano de fundo.
+
+
+
+Escopo: (Liste as principais funcionalidades planejadas.)
+
+O escopo do projeto será pequeno só com no máximo 5 fases diferentes cada uma com power ups específicos, mas isso ainda pode sofrer alterações.
+
+Mais detalhes estão disponíveis no GDD.
+
+
+3. Tecnologias e Ferramentas (Coloque somente categorias que forem relevantes ao seu projeto.)
+
+Linguagem de programação: Gd script, porque essa foi a engine escolhida para o projeto.
+Framework/Biblioteca: Não sei se vai ser necessário, se for, esse tópico vai ser atualizado.
+Banco de dados: Biblioteca de Recursos do Godot
+Outras ferramentas: A principio nenhuma mas pode mudar conforme o andamento do projeto 
+
+4. Backlog do Produto (Apenas os épicos principais do projeto.)
+
+- Como jogador quero ter liberdade de movimento dentro dos limites do jogo
+- Como  jogador quero poder escolher a fase que vou jogar
+- Como jogador quero um menu para entrar/sair do jogo
+
+
