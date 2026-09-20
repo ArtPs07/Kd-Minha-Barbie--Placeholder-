@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://br56cd6xfelpb" path="res://Sprites/Seasonal Tilesets/1 - Grassland/Grassland_entities (16 x 16).png" id="3_x2rw5"]
 [ext_resource type="Texture2D" uid="uid://o5kw26eihq3r" path="res://Sprites/Seasonal Tilesets/5 - Misc. universal tiles/House (112 x 96).png" id="4_a17tn"]
 [ext_resource type="Texture2D" uid="uid://dnkg87m2pconm" path="res://Sprites/Seasonal Tilesets/5 - Misc. universal tiles/Flowers (16 x 16).png" id="5_g4ush"]
+[ext_resource type="PackedScene" uid="uid://daq6ptr4hckp7" path="res://Entidades/fim_da_fase.tscn" id="6_a17tn"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_x2rw5"]
 tile_data = PackedInt32Array(0, 65536, 1, 262145, 327680, 1, 262149, 65536, 1, 327687, 65536, 5, 262153, 65536, 1, 262154, 65536, 1)
@@ -58,10 +59,14 @@ sources/1 = SubResource("TileSetAtlasSource_ih4v7")
 sources/2 = SubResource("TileSetAtlasSource_qk7wo")
 pattern_0 = SubResource("TileMapPattern_x2rw5")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4ush"]
+size = Vector2(20, 228)
+
 [node name="Jogo" type="Node2D" unique_id=127404374]
+metadata/_edit_vertical_guides_ = [680.0]
 
 [node name="Jogador" parent="." unique_id=522947055 instance=ExtResource("1_db0ww")]
-position = Vector2(136, 105)
+position = Vector2(332, 40)
 
 [node name="Tiles" type="Node2D" parent="." unique_id=337649824]
 
@@ -74,3 +79,13 @@ tile_set = ExtResource("2_x2rw5")
 position = Vector2(0, -13)
 tile_map_data = PackedByteArray("AAANAAIAAAAFAAEAAAADAAYAAAAJAAEAAAALAAYAAAAJAAEAAAAhAAYAAAABAAEAAAACAAcAAAAHAAUAAAADAAcAAAAHAAUAAAAEAAcAAAAHAAUAAAAFAAcAAAAHAAUAAAAGAAcAAAAHAAUAAAAHAAcAAAAHAAUAAAAPAAMAAAADAAUAAAARAAcAAAABAAUAAAATAAcAAAABAAUAAAAiAAcAAAABAAUAAAAmAAQAAQAAAAAAAAASAAYAAAABAAEAAAAmAAYAAAABAAEAAAAVAAIAAAABAAEAAAAWAAYAAAAFAAEAAAAaAAYAAAABAAEAAAAcAAcAAAABAAUAAAAeAAYAAAABAAEAAAAfAAYAAAABAAEAAAA=")
 tile_set = SubResource("TileSet_36dnn")
+
+[node name="FimDaFase" parent="." unique_id=2064428115 instance=ExtResource("6_a17tn")]
+position = Vector2(690, 89)
+prox_nv = "floresta"
+
+[node name="CollisionShape2D" parent="FimDaFase" index="0" unique_id=264685960]
+position = Vector2(-17, -71)
+shape = SubResource("RectangleShape2D_g4ush")
+
+[editable path="FimDaFase"]
