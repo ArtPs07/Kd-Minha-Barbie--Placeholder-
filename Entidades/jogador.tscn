@@ -3,11 +3,8 @@
 [ext_resource type="Script" uid="uid://d03eqe4bhhb4e" path="res://scripts/Jogador.gd" id="1_yv1tq"]
 [ext_resource type="Texture2D" uid="uid://ckab5gbic7vp6" path="res://Sprites/1 - Penguin/Idle (16 x 16).png" id="2_qbtmm"]
 [ext_resource type="Texture2D" uid="uid://4li7acwj2xa" path="res://Sprites/1 - Penguin/Waddling (16 x 16).png" id="3_1t3xe"]
+[ext_resource type="Texture2D" uid="uid://c3pqpj1rsc4u7" path="res://Sprites/1 - Penguin/Ducking (16 x 16).png" id="3_ys7n0"]
 [ext_resource type="Texture2D" uid="uid://35scf40jf76w" path="res://Sprites/1 - Penguin/Jump (16 x 16).png" id="4_ij8ri"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pxfmk"]
-radius = 6.0
-height = 16.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1t3xe"]
 atlas = ExtResource("2_qbtmm")
@@ -81,6 +78,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("3_ys7n0")
+}],
+"loop": 2,
+"name": &"agachar",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_38jbe")
 }, {
 "duration": 1.0,
@@ -111,21 +116,23 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ys7n0"]
+radius = 6.0
+height = 16.0
+
 [node name="Jogador" type="CharacterBody2D" unique_id=522947055]
 collision_layer = 2
 collision_mask = 9
 script = ExtResource("1_yv1tq")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=698701057]
-position = Vector2(-5, -3)
-shape = SubResource("CapsuleShape2D_pxfmk")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1814962677]
 z_index = 1
-position = Vector2(-5, -3)
 sprite_frames = SubResource("SpriteFrames_pxfmk")
-animation = &"pular"
-autoplay = "Idle"
+animation = &"agachar"
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=698701057]
+shape = SubResource("CapsuleShape2D_ys7n0")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1672577382]
 limit_left = 0
