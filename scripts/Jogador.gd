@@ -5,7 +5,8 @@ enum estadosJogador {
 	idle,
 	andando,
 	pulando,
-	agachando
+	agachando,
+	caindo
 }
 
 @onready var colisao: CollisionShape2D = $CollisionShape2D
@@ -13,6 +14,8 @@ enum estadosJogador {
 
 const SPEED = 80.0
 const JUMP_VELOCITY = -300.0
+var contadorPulos = 0
+@export var maxPulos = 2
 var direction = 0
 var estado: estadosJogador
 
@@ -33,7 +36,8 @@ func _physics_process(delta: float) -> void:
 			pulando_estado()
 		estadosJogador.agachando:
 			agachando_estado()
-		
+		estadosJogador.caindo:
+			caindo_estado()
 			
 	move_and_slide()
 	
@@ -50,6 +54,7 @@ func vai_para_Pular():
 	estado = estadosJogador.pulando
 	anim.play("pular")
 	velocity.y = JUMP_VELOCITY
+	contadorPulos += 1
 	
 func vai_para_Agachar():
 	estado = estadosJogador.agachando
@@ -62,7 +67,10 @@ func para_agachar():#ajusta o colisor pro tamanho normal
 	colisao.shape.radius = 6
 	colisao.shape.height = 16
 	colisao.position.y = 0
-	
+
+func vai_para_cair():
+	estado = estadosJogador.caindo
+	anim.play("cair")
 
 func idle_estado():
 	move()
@@ -80,6 +88,7 @@ func idle_estado():
 		
 func andando_estado():
 	move()
+	
 	if velocity.x == 0:
 		vai_para_Idle()
 		return
@@ -88,14 +97,19 @@ func andando_estado():
 		vai_para_Pular()
 		return
 		
+	if !is_on_floor():
+		vai_para_cair()
+		return
 		
 func pulando_estado():
 	move()
-	if is_on_floor():
-		if velocity.x == 0:
-			vai_para_Idle()
-		else:
-			vai_para_Andar()
+	
+	if Input.is_action_just_pressed("pulo") && podePular():
+		vai_para_Pular()
+		return
+		
+	if velocity.y > 0:
+		vai_para_cair()
 		return
 		
 func agachando_estado():
@@ -104,7 +118,29 @@ func agachando_estado():
 		para_agachar()
 		vai_para_Andar()
 		return
+
+func caindo_estado():
+	move()
 	
+	if Input.is_action_just_pressed("pulo") && podePular():
+		vai_para_Pular()
+		return
+	
+	
+	
+	
+	if is_on_floor():
+		contadorPulos = 0
+		
+		if velocity.x == 0:
+			vai_para_Idle()
+		else:
+			vai_para_Andar()
+		return
+
+
+
+
 func move():
 	atualiza_dir()
 	
@@ -123,7 +159,10 @@ func atualiza_dir():
 	elif direction > 0:
 		anim.flip_h = false
 
-
+func podePular() -> bool:
+	return contadorPulos < maxPulos
+	
+	
 
 
 
