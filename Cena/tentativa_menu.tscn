@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bwuf4p2de2107"]
+
+[ext_resource type="Script" uid="uid://dvb0plirhrj0j" path="res://tentativa_menu.gd" id="1_ca8rk"]
+
+[node name="TentativaMenu" type="Node2D" unique_id=330686498]
+script = ExtResource("1_ca8rk")
+
+[node name="button_manager" type="Control" parent="." unique_id=935714395]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Start" type="Button" parent="button_manager" unique_id=1581534506]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 17.0
+offset_right = 202.0
+offset_bottom = 50.0
+text = "START"
+
+[node name="Quit" type="Button" parent="button_manager" unique_id=1071451936]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 78.0
+offset_right = 204.0
+offset_bottom = 117.0
+text = "QUIT
+"
+
+[connection signal="pressed" from="button_manager/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="button_manager/Quit" to="." method="_on_quit_pressed"]
