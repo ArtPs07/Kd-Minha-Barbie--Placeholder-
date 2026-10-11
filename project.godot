@@ -64,6 +64,9 @@ agachar={
 
 [layer_names]
 
+2d_render/layer_1="terreno"
+2d_render/layer_2="jogador"
+2d_render/layer_3="inimigos"
 2d_physics/layer_1="Fase"
 2d_physics/layer_2="Jogador"
 2d_physics/layer_3="Inimigos"

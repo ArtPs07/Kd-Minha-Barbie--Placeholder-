@@ -11,10 +11,13 @@ enum estadosJogador {
 	morrendo
 }
 
+
+
 @onready var colisao: CollisionShape2D = $CollisionShape2D
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+@onready var tempo_reload: Timer = $TempoReload
 
-@export var max_vel = 180.0
+@export var max_vel = 150.0
 const JUMP_VELOCITY = -300.0
 var contadorPulos = 0
 @export var maxPulos = 2
@@ -91,6 +94,7 @@ func vai_para_morrer():
 	estado = estadosJogador.morrendo
 	anim.play("morrer")
 	velocity = Vector2.ZERO
+	tempo_reload.start()
 
 func idle_estado(delta):
 	move(delta)
@@ -188,14 +192,16 @@ func podePular() -> bool:
 	return contadorPulos < maxPulos
 	
 	
-func move(delta):
+func move(_delta):
 	atualiza_dir()
 	
 	if direction: # direction é -1 com player andando para esquerda e 1 andando pra direita
-		velocity.x = move_toward(velocity.x, direction * max_vel, accel * delta)
-		
+		#velocity.x = move_toward(velocity.x, direction * max_vel, accel * delta)
+		velocity.x = direction * max_vel
 	else:
-		velocity.x = move_toward(velocity.x, 0, decel * delta)
+		velocity.x = 0
+		#velocity.x = move_toward(velocity.x, 0, decel * delta)
+		
 
 
 	
@@ -218,14 +224,10 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 		area.get_parent().toumouDano()
 		vai_para_Pular()
 	else:
-		vai_para_morrer()
+		if estado != estadosJogador.morrendo:
+			vai_para_morrer()
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
+
+func _on_tempo_reload_timeout() -> void:
+	get_tree().reload_current_scene()
