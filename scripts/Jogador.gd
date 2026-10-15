@@ -12,8 +12,9 @@ enum estadosJogador {
 	atacando
 }
 
-
-const BULLET = preload("res://entidades/bullet.tscn")
+var lista_corazon : Array[TextureRect]
+var vidas = 3
+#const BULLET = preload("res://entidades/bullet.tscn")
 
 @onready var colisao: CollisionShape2D = $CollisionShape2D
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
@@ -32,6 +33,11 @@ var estado: estadosJogador
 
 
 func _ready() -> void:
+	var parentes_vidas = $barra_de_vida/HBoxContainer
+	for child in parentes_vidas.get_children():
+		lista_corazon.append(child)
+		
+	print(lista_corazon)
 	vai_para_Idle()
 
 func _physics_process(delta: float) -> void:
@@ -95,10 +101,16 @@ func parar_deslizar():
 	aumentaColisor()
 	
 func vai_para_morrer():
+	if vidas > 0:
+		vidas -= 1
+		
+	atualiza_barra_vida()
 	estado = estadosJogador.morrendo
 	anim.play("morrer")
 	velocity = Vector2.ZERO
 	tempo_reload.start()
+	
+	
 
 func vai_para_atacar():
 	estado = estadosJogador.atacando
@@ -253,7 +265,10 @@ func _on_tempo_reload_timeout() -> void:
 func atira():
 	pass
 	
-	
+func atualiza_barra_vida():
+	for i in range (lista_corazon.size()):
+		lista_corazon[i].visible = i < vidas
+		
 	
 	
 	

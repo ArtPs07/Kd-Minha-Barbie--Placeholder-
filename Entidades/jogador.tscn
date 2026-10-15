@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bg8dwgwx8jyjl" path="res://assets/1 - Penguin/Hurt (16 x 16).png" id="7_6fs8a"]
 [ext_resource type="Texture2D" uid="uid://drg0x4m17yi0v" path="res://assets/1 - Penguin/Lying_On_Ground (16 x 16).png" id="8_14w74"]
 [ext_resource type="Texture2D" uid="uid://rp5iyydbe3cq" path="res://assets/1 - Penguin/Jump (16 x 16).png" id="9_k3knd"]
+[ext_resource type="PackedScene" uid="uid://ufbfdwhvy40v" path="res://entidades/corazon.tscn" id="10_ghsf3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1t3xe"]
 atlas = ExtResource("2_ghsf3")
@@ -198,6 +199,31 @@ debug_color = Color(0.7527844, 0.45740998, 0.054822102, 0.41960785)
 
 [node name="TempoReload" type="Timer" parent="." unique_id=491992006]
 one_shot = true
+
+[node name="barra_de_vida" type="CanvasLayer" parent="." unique_id=746589574]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="barra_de_vida" unique_id=1108797403]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="vidas" type="TextureRect" parent="barra_de_vida/HBoxContainer" unique_id=1690299232]
+custom_minimum_size = Vector2(7, 0)
+propagate_maximum_size = true
+layout_mode = 2
+
+[node name="Corazon" parent="barra_de_vida/HBoxContainer/vidas" unique_id=1727160677 instance=ExtResource("10_ghsf3")]
+
+[node name="vidas2" type="TextureRect" parent="barra_de_vida/HBoxContainer" unique_id=1375327658]
+custom_minimum_size = Vector2(7, 0)
+layout_mode = 2
+
+[node name="Corazon" parent="barra_de_vida/HBoxContainer/vidas2" unique_id=1583005505 instance=ExtResource("10_ghsf3")]
+
+[node name="vidas3" type="TextureRect" parent="barra_de_vida/HBoxContainer" unique_id=1225696228]
+custom_minimum_size = Vector2(7, 0)
+layout_mode = 2
+
+[node name="Corazon" parent="barra_de_vida/HBoxContainer/vidas3" unique_id=1053037481 instance=ExtResource("10_ghsf3")]
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="TempoReload" to="." method="_on_tempo_reload_timeout"]
