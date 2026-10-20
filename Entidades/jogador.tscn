@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://drg0x4m17yi0v" path="res://assets/1 - Penguin/Lying_On_Ground (16 x 16).png" id="8_14w74"]
 [ext_resource type="Texture2D" uid="uid://rp5iyydbe3cq" path="res://assets/1 - Penguin/Jump (16 x 16).png" id="9_k3knd"]
 [ext_resource type="PackedScene" uid="uid://ufbfdwhvy40v" path="res://entidades/corazon.tscn" id="10_ghsf3"]
+[ext_resource type="AudioStream" uid="uid://c6bsb87ob0iqx" path="res://sound_effects/53439420-retro-jump-sound-01-474822.mp3" id="11_kat7q"]
+[ext_resource type="AudioStream" uid="uid://4rjtwd0lorwu" path="res://sound_effects/53439420-retro-hurt-sound-03-474780.mp3" id="12_vtopc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1t3xe"]
 atlas = ExtResource("2_ghsf3")
@@ -173,6 +175,8 @@ height = 16.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pxfmk"]
 size = Vector2(13, 16)
 
+[sub_resource type="GDScript" id="GDScript_ghsf3"]
+
 [node name="Jogador" type="CharacterBody2D" unique_id=522947055 groups=["Jogador"]]
 collision_layer = 2
 collision_mask = 9
@@ -201,29 +205,41 @@ debug_color = Color(0.7527844, 0.45740998, 0.054822102, 0.41960785)
 one_shot = true
 
 [node name="barra_de_vida" type="CanvasLayer" parent="." unique_id=746589574]
+script = SubResource("GDScript_ghsf3")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="barra_de_vida" unique_id=1108797403]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_top = -9.0
+offset_right = 47.0
+offset_bottom = 31.0
 
-[node name="vidas" type="TextureRect" parent="barra_de_vida/HBoxContainer" unique_id=1690299232]
-custom_minimum_size = Vector2(7, 0)
-propagate_maximum_size = true
+[node name="TextureRect" type="TextureRect" parent="barra_de_vida/HBoxContainer" unique_id=1203569096]
+custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 
-[node name="Corazon" parent="barra_de_vida/HBoxContainer/vidas" unique_id=1727160677 instance=ExtResource("10_ghsf3")]
+[node name="Corazon" parent="barra_de_vida/HBoxContainer/TextureRect" unique_id=1727160677 instance=ExtResource("10_ghsf3")]
+position = Vector2(5, 15)
 
-[node name="vidas2" type="TextureRect" parent="barra_de_vida/HBoxContainer" unique_id=1375327658]
-custom_minimum_size = Vector2(7, 0)
+[node name="TextureRect3" type="TextureRect" parent="barra_de_vida/HBoxContainer" unique_id=943511956]
+custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 
-[node name="Corazon" parent="barra_de_vida/HBoxContainer/vidas2" unique_id=1583005505 instance=ExtResource("10_ghsf3")]
+[node name="Corazon" parent="barra_de_vida/HBoxContainer/TextureRect3" unique_id=191092289 instance=ExtResource("10_ghsf3")]
+position = Vector2(5, 15)
 
-[node name="vidas3" type="TextureRect" parent="barra_de_vida/HBoxContainer" unique_id=1225696228]
-custom_minimum_size = Vector2(7, 0)
+[node name="TextureRect2" type="TextureRect" parent="barra_de_vida/HBoxContainer" unique_id=1166519175]
+custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 
-[node name="Corazon" parent="barra_de_vida/HBoxContainer/vidas3" unique_id=1053037481 instance=ExtResource("10_ghsf3")]
+[node name="Corazon" parent="barra_de_vida/HBoxContainer/TextureRect2" unique_id=2045490452 instance=ExtResource("10_ghsf3")]
+position = Vector2(5, 15)
+
+[node name="jump_audio" type="AudioStreamPlayer2D" parent="." unique_id=214970319]
+stream = ExtResource("11_kat7q")
+volume_db = -31.065
+
+[node name="hurt_sound" type="AudioStreamPlayer2D" parent="." unique_id=501141260]
+stream = ExtResource("12_vtopc")
+volume_db = -27.013
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="TempoReload" to="." method="_on_tempo_reload_timeout"]

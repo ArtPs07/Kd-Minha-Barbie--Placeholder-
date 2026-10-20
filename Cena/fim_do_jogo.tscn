@@ -1,8 +1,23 @@
 [gd_scene format=3 uid="uid://b2qwt0njmpxx0"]
 
-[ext_resource type="Script" uid="uid://glrs06idwo64" path="res://scripts/quit.gd" id="1_g07bd"]
+[ext_resource type="Script" uid="uid://ceqpawl4281j8" path="res://scripts/fim_do_jogo.gd" id="1_8pkdd"]
+[ext_resource type="Texture2D" uid="uid://dh58buuux1u7e" path="res://assets/menus e aleatorios/Título GAME OVER em Pixel Art Retro.png" id="1_kivvb"]
+[ext_resource type="Texture2D" uid="uid://de61sd3jg24bl" path="res://assets/menus e aleatorios/Tela Preta Uniforme.png" id="2_82fj3"]
+[ext_resource type="Texture2D" uid="uid://cth8bt4pitr7w" path="res://assets/menus e aleatorios/Logo pixelado “QUIT” em degradê retrô.png" id="3_8pkdd"]
+[ext_resource type="Texture2D" uid="uid://iyikm3tqvyes" path="res://assets/menus e aleatorios/Texto Pixelado RESTART em Gradiente Retro.png" id="4_jekrc"]
+[ext_resource type="AudioStream" uid="uid://csrioh5ly86q3" path="res://sound_effects/u_2fbuaev0zn-select-sound-121244.mp3" id="6_6otav"]
+[ext_resource type="AudioStream" uid="uid://d2dmv05x5n7o7" path="res://sound_effects/tuomas_data-game-over-39-199830.mp3" id="7_ff2w4"]
 
 [node name="FimDoJogo" type="Node2D" unique_id=2020278034]
+script = ExtResource("1_8pkdd")
+
+[node name="background" type="Sprite2D" parent="." unique_id=1708400864]
+texture = ExtResource("2_82fj3")
+
+[node name="gameover" type="Sprite2D" parent="." unique_id=2138247190]
+position = Vector2(133.00002, 43)
+scale = Vector2(0.08471679, 0.11328126)
+texture = ExtResource("1_kivvb")
 
 [node name="Control" type="Control" parent="." unique_id=828591314]
 layout_mode = 3
@@ -10,15 +25,45 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Quit" type="Button" parent="Control" unique_id=1121466066]
+[node name="Restart" type="Button" parent="Control" unique_id=1788428283]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 120.0
+offset_right = 203.0
+offset_bottom = 151.0
+
+[node name="restart" type="Sprite2D" parent="Control/Restart" unique_id=735205976]
+position = Vector2(65, 21)
+scale = Vector2(0.10160318, 0.08300781)
+texture = ExtResource("4_jekrc")
+
+[node name="quit" type="Button" parent="Control" unique_id=1767852559]
 layout_mode = 0
 offset_left = 92.0
-offset_top = 86.0
-offset_right = 191.0
-offset_bottom = 117.0
-text = "QUIT
+offset_top = 80.0
+offset_right = 173.0
+offset_bottom = 109.0
 
-"
-script = ExtResource("1_g07bd")
+[node name="quit" type="Sprite2D" parent="Control/quit" unique_id=896343532]
+z_index = 1
+position = Vector2(41.000015, 13.999992)
+scale = Vector2(0.045202963, 0.046933807)
+texture = ExtResource("3_8pkdd")
 
-[connection signal="pressed" from="Control/Quit" to="Control/Quit" method="_on_pressed"]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1597290375]
+limit_left = 0
+limit_top = 0
+limit_right = 270
+limit_bottom = 208
+
+[node name="select_audio" type="AudioStreamPlayer2D" parent="." unique_id=376807963]
+stream = ExtResource("6_6otav")
+volume_db = -18.909
+
+[node name="game_over_sound" type="AudioStreamPlayer2D" parent="." unique_id=985385758]
+stream = ExtResource("7_ff2w4")
+volume_db = -17.558
+autoplay = true
+
+[connection signal="pressed" from="Control/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Control/quit" to="." method="_on_quit_pressed"]

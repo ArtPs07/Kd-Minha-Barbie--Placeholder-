@@ -13,8 +13,10 @@ enum estadosJogador {
 }
 
 var lista_corazon : Array[TextureRect]
-var vidas = 3
+
 #const BULLET = preload("res://entidades/bullet.tscn")
+@onready var jump_audio: AudioStreamPlayer2D = $jump_audio
+@onready var hurt_sound: AudioStreamPlayer2D = $hurt_sound
 
 @onready var colisao: CollisionShape2D = $CollisionShape2D
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
@@ -32,6 +34,8 @@ var estado: estadosJogador
 
 
 
+
+
 func _ready() -> void:
 	var parentes_vidas = $barra_de_vida/HBoxContainer
 	for child in parentes_vidas.get_children():
@@ -41,6 +45,7 @@ func _ready() -> void:
 	vai_para_Idle()
 
 func _physics_process(delta: float) -> void:
+	
 	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -79,6 +84,7 @@ func vai_para_Pular():
 	anim.play("pular")
 	velocity.y = JUMP_VELOCITY
 	contadorPulos += 1
+	jump_audio.play()
 	
 func vai_para_Agachar():
 	estado = estadosJogador.agachando
@@ -101,14 +107,14 @@ func parar_deslizar():
 	aumentaColisor()
 	
 func vai_para_morrer():
-	if vidas > 0:
-		vidas -= 1
-		
+	hurt_sound.play()
 	atualiza_barra_vida()
 	estado = estadosJogador.morrendo
 	anim.play("morrer")
 	velocity = Vector2.ZERO
 	tempo_reload.start()
+		
+
 	
 	
 
@@ -260,16 +266,24 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 
 
 func _on_tempo_reload_timeout() -> void:
-	get_tree().reload_current_scene()
+	if Global.vidas > 0:
+		Global.vidas -= 1
+		#get_tree().reload_current_scene()
+		vai_para_Idle()
+		
+	else:
+		get_tree().change_scene_to_file("res://cena/fim_do_jogo.tscn")
+	
+	
 	
 func atira():
 	pass
 	
 func atualiza_barra_vida():
 	for i in range (lista_corazon.size()):
-		lista_corazon[i].visible = i < vidas
+		lista_corazon[i].visible = i < Global.vidas
 		
-	
+
 	
 	
 	

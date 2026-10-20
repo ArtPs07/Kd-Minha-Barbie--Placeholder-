@@ -15,6 +15,10 @@ run/main_scene="uid://bwuf4p2de2107"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*uid://dnk2mnhbuwph3"
+
 [display]
 
 window/size/viewport_width=300
@@ -29,13 +33,15 @@ folder_colors={
 "res://assets/": "yellow",
 "res://cena/": "green",
 "res://entidades/": "purple",
-"res://scripts/": "red"
+"res://scripts/": "red",
+"res://sound_effects/": "teal"
 }
 
 [global_group]
 
 Jogador=""
 Inimigos=""
+letal=""
 
 [input]
 
@@ -73,6 +79,7 @@ agachar={
 2d_render/layer_1="terreno"
 2d_render/layer_2="jogador"
 2d_render/layer_3="inimigos"
+2d_render/layer_5="letal area"
 2d_physics/layer_1="Fase"
 2d_physics/layer_2="Jogador"
 2d_physics/layer_3="Inimigos"

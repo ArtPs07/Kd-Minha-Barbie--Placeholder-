@@ -9,36 +9,39 @@
 [ext_resource type="TileSet" uid="uid://c84chpoc0b1e4" path="res://cena/tiles/Decoração.tres" id="7_1ckp6"]
 [ext_resource type="PackedScene" uid="uid://daq6ptr4hckp7" path="res://entidades/fim_da_fase.tscn" id="8_jouys"]
 [ext_resource type="PackedScene" uid="uid://dermkl5v6k0mk" path="res://entidades/puro_osso.tscn" id="9_km8uo"]
+[ext_resource type="AudioStream" uid="uid://bo84kr845u8ln" path="res://sound_effects/freesound_community-lonely-piano-clip-32779.mp3" id="10_8vfiq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jouys"]
 size = Vector2(107, 469.5)
 
 [node name="neve" type="Node2D" unique_id=1438039044]
 
-[node name="Camada3" type="Parallax2D" parent="." unique_id=1623631167]
+[node name="camadas" type="Node2D" parent="." unique_id=680030469]
+
+[node name="Camada3" type="Parallax2D" parent="camadas" unique_id=1623631167]
 scroll_scale = Vector2(0.1, 0.1)
 
-[node name="Sprite2D" type="Sprite2D" parent="Camada3" unique_id=1463795921]
+[node name="Sprite2D" type="Sprite2D" parent="camadas/Camada3" unique_id=1463795921]
 texture_repeat = 2
 texture = ExtResource("1_pbavc")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 864, 208)
 
-[node name="Camada2" type="Parallax2D" parent="." unique_id=1110192102]
+[node name="Camada2" type="Parallax2D" parent="camadas" unique_id=1110192102]
 scroll_scale = Vector2(0.1, 0.1)
 
-[node name="Sprite2D" type="Sprite2D" parent="Camada2" unique_id=1954937784]
+[node name="Sprite2D" type="Sprite2D" parent="camadas/Camada2" unique_id=1954937784]
 texture_repeat = 2
 texture = ExtResource("2_1thqe")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 864, 208)
 
-[node name="Camada1" type="Parallax2D" parent="." unique_id=357165426]
+[node name="Camada1" type="Parallax2D" parent="camadas" unique_id=357165426]
 scroll_scale = Vector2(0.1, 0.1)
 
-[node name="Sprite2D" type="Sprite2D" parent="Camada1" unique_id=563434292]
+[node name="Sprite2D" type="Sprite2D" parent="camadas/Camada1" unique_id=563434292]
 texture_repeat = 2
 texture = ExtResource("3_1ckp6")
 centered = false
@@ -64,13 +67,44 @@ tile_map_data = PackedByteArray("AAADAQsAAQADAAUAAAA/AAoAAwABAAEAAABQAAgAAwABAAE
 tile_set = ExtResource("7_1ckp6")
 
 [node name="FimDaFase" parent="." unique_id=2064428115 instance=ExtResource("8_jouys")]
-proxNv = "fim_do_jogo"
+proxNv = "tela_final"
 
 [node name="CollisionShape2D" parent="FimDaFase" index="0" unique_id=264685960]
 position = Vector2(3406, 59)
 shape = SubResource("RectangleShape2D_jouys")
 
-[node name="PuroOsso" parent="." unique_id=77015984 instance=ExtResource("9_km8uo")]
+[node name="musica_de_fundo" type="AudioStreamPlayer2D" parent="." unique_id=800436606]
+stream = ExtResource("10_8vfiq")
+volume_db = -13.507
+autoplay = true
+max_distance = 4096.0
+attenuation = 0.0
+parameters/looping = true
+
+[node name="inimigos" type="Node2D" parent="." unique_id=1589267813]
+
+[node name="PuroOsso" parent="inimigos" unique_id=77015984 instance=ExtResource("9_km8uo")]
 position = Vector2(436, 150)
+
+[node name="PuroOsso2" parent="inimigos" unique_id=687563231 instance=ExtResource("9_km8uo")]
+position = Vector2(599, 83)
+
+[node name="PuroOsso3" parent="inimigos" unique_id=2020427975 instance=ExtResource("9_km8uo")]
+position = Vector2(878, 146)
+
+[node name="PuroOsso4" parent="inimigos" unique_id=1605642422 instance=ExtResource("9_km8uo")]
+position = Vector2(1117, 180)
+
+[node name="PuroOsso5" parent="inimigos" unique_id=1502962691 instance=ExtResource("9_km8uo")]
+position = Vector2(1456, 117)
+
+[node name="PuroOsso6" parent="inimigos" unique_id=46183649 instance=ExtResource("9_km8uo")]
+position = Vector2(1781, 167)
+
+[node name="PuroOsso7" parent="inimigos" unique_id=1994262850 instance=ExtResource("9_km8uo")]
+position = Vector2(2348, 180)
+
+[node name="PuroOsso8" parent="inimigos" unique_id=1139281249 instance=ExtResource("9_km8uo")]
+position = Vector2(2773, 178)
 
 [editable path="FimDaFase"]
