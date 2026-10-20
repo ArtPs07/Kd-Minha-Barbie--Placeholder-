@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://daq6ptr4hckp7"]
+
+[ext_resource type="Script" uid="uid://l8fpv1ml2q3g" path="res://scripts/fim_da_fase.gd" id="1_2sd1l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pxfmk"]
+
+[node name="FimDaFase" type="Area2D" unique_id=2064428115]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_2sd1l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=264685960]
+shape = SubResource("RectangleShape2D_pxfmk")
+debug_color = Color(0.6110631, 0.533805, 0.21213219, 0.41960785)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

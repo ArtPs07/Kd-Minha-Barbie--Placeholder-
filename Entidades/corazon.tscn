@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://ufbfdwhvy40v"]
+
+[ext_resource type="Texture2D" uid="uid://cai05ncwy44vq" path="res://assets/menus e aleatorios/Gemini_Generated_Image_c2wqzhc2wqzhc2wq-removebg-preview.png" id="1_6vgiw"]
+
+[node name="Corazon" type="Sprite2D" unique_id=1727160677]
+position = Vector2(5.125, 5.374999)
+scale = Vector2(0.0235, 0.0225)
+texture = ExtResource("1_6vgiw")

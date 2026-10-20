@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://bfgrmun71qf40"]
+
+[ext_resource type="Texture2D" uid="uid://ceqivasdg2i2f" path="res://assets/Seasonal Tilesets/3 - Tropics/Background parts/_Complete_static_BG_(288 x 208).png" id="1_6jw30"]
+[ext_resource type="Texture2D" uid="uid://ddmqf1geiefa" path="res://assets/menus e aleatorios/Banner de Madeira com Moldura Dourada Retro.png" id="2_bkvbg"]
+[ext_resource type="Script" uid="uid://dtcb2dygo0kea" path="res://scripts/tela_final.gd" id="3_kmuw4"]
+[ext_resource type="Texture2D" uid="uid://cj38bfxfjlhh2" path="res://assets/menus e aleatorios/Botão “QUIT” em Pixel Art Retro.png" id="3_xa4fh"]
+[ext_resource type="AudioStream" uid="uid://csrioh5ly86q3" path="res://sound_effects/u_2fbuaev0zn-select-sound-121244.mp3" id="5_buyle"]
+[ext_resource type="AudioStream" uid="uid://cwb8fp3qjipe3" path="res://sound_effects/pw23check-winning-218995.mp3" id="6_1suh0"]
+
+[node name="tela_final" type="Node2D" unique_id=1012873263]
+
+[node name="background" type="Sprite2D" parent="." unique_id=985678450]
+texture_repeat = 2
+texture = ExtResource("1_6jw30")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 600, 208)
+
+[node name="placa" type="Sprite2D" parent="background" unique_id=1196550003]
+position = Vector2(200.00002, 91.00001)
+scale = Vector2(0.13917273, 0.24575162)
+texture = ExtResource("2_bkvbg")
+
+[node name="quit" type="Sprite2D" parent="background" unique_id=1820787130]
+z_index = 1
+position = Vector2(199, 187)
+scale = Vector2(0.038229924, 0.046486933)
+texture = ExtResource("3_xa4fh")
+
+[node name="TextEdit" type="TextEdit" parent="background" unique_id=1811890554]
+offset_left = 95.0
+offset_top = 23.0
+offset_right = 313.0
+offset_bottom = 152.0
+text = "Obrigado por chegar 
+até o final, espero que esta
+simples e curta jogatina
+tenha sido divertida."
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1295223238]
+limit_left = 0
+limit_top = 0
+limit_right = 600
+limit_bottom = 208
+
+[node name="Control" type="Control" parent="." unique_id=1788319856]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 95.0
+offset_top = 23.0
+offset_right = 135.0
+offset_bottom = 63.0
+
+[node name="quit" type="Button" parent="Control" unique_id=1500069876]
+layout_mode = 0
+offset_left = 73.0
+offset_top = 151.0
+offset_right = 137.0
+offset_bottom = 178.0
+script = ExtResource("3_kmuw4")
+
+[node name="select_audio" type="AudioStreamPlayer2D" parent="." unique_id=953763921]
+stream = ExtResource("5_buyle")
+volume_db = -14.396
+
+[node name="winning_audio" type="AudioStreamPlayer2D" parent="." unique_id=1693883556]
+stream = ExtResource("6_1suh0")
+volume_db = -31.954
+autoplay = true
+
+[connection signal="pressed" from="Control/quit" to="Control/quit" method="_on_pressed"]
